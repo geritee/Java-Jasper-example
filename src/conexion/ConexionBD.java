@@ -1,7 +1,17 @@
 package conexion;
 
+import java.awt.Frame;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLDataException;
+import java.util.HashMap;
+import java.util.Map;
+import javax.swing.JOptionPane;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -23,5 +33,19 @@ public class ConexionBD {
     }
     public void desconectar(){
         conectar = null;
+    }  
+    public void mostrarJasper(int clave){
+        try{
+            JasperReport report = JasperCompileManager.compileReport(System.getProperty("user.dir")+"\\report1.jrxml");
+            Map parametro = new HashMap();
+            parametro.put("clave", clave);
+            JasperPrint print = JasperFillManager.fillReport(report, parametro, conectar);
+            JasperViewer view = new JasperViewer(print, false);
+            view.setTitle("Mi reporte");
+            view.setExtendedState(Frame.MAXIMIZED_BOTH);
+            view.setVisible(true);
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
     }
 }

@@ -376,6 +376,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="d_clave">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="d_claveActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="d_nombre">
             </Component>
@@ -448,7 +451,9 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="220" max="-2" attributes="0"/>
                       <Component id="buscageneral" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                      <Component id="JasperReport" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="169" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -458,7 +463,10 @@
                       <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" pref="255" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                      <Component id="buscageneral" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="buscageneral" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="JasperReport" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace pref="75" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -482,6 +490,14 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buscageneralActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="JasperReport">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Jasper Report"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JasperReportActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

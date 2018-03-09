@@ -9,6 +9,7 @@ import classDAO.ProductosDAO;
 import classDAO.ProveedoresDAO;
 import classVO.ProductosVO;
 import classVO.ProveedoresVO;
+import conexion.ConexionBD;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -75,6 +76,7 @@ public class ProgramaFRM extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla_general = new javax.swing.JTable();
         buscageneral = new javax.swing.JButton();
+        JasperReport = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -228,6 +230,12 @@ public class ProgramaFRM extends javax.swing.JFrame {
 
         jLabel11.setText("Proveedor");
 
+        d_clave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                d_claveActionPerformed(evt);
+            }
+        });
+
         actualizarProducto.setText("Actualizar");
         actualizarProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -345,6 +353,13 @@ public class ProgramaFRM extends javax.swing.JFrame {
             }
         });
 
+        JasperReport.setText("Jasper Report");
+        JasperReport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JasperReportActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -356,7 +371,9 @@ public class ProgramaFRM extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(220, 220, 220)
                 .addComponent(buscageneral)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(48, 48, 48)
+                .addComponent(JasperReport)
+                .addContainerGap(169, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -364,7 +381,9 @@ public class ProgramaFRM extends javax.swing.JFrame {
                 .addGap(78, 78, 78)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(48, 48, 48)
-                .addComponent(buscageneral)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buscageneral)
+                    .addComponent(JasperReport))
                 .addContainerGap(75, Short.MAX_VALUE))
         );
 
@@ -548,6 +567,16 @@ public class ProgramaFRM extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_p_claveActionPerformed
 
+    private void JasperReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JasperReportActionPerformed
+        // TODO add your handling code here:
+        ConexionBD reporte = new ConexionBD();
+        reporte.mostrarJasper(Integer.parseInt(this.d_clave.getText()));
+    }//GEN-LAST:event_JasperReportActionPerformed
+
+    private void d_claveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_d_claveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_d_claveActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -597,6 +626,7 @@ public class ProgramaFRM extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JasperReport;
     private javax.swing.JButton actualizarProducto;
     private javax.swing.JButton actualizarProveedor;
     private javax.swing.JButton buscageneral;
